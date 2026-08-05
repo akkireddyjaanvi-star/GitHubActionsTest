@@ -1,0 +1,29 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  my_first_job:
+    name: My First Job
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Step 1 - Hellow
+        run: echo "******* Welcome to My First Job *******"
+
+      - name: Step 2 - Printing Directory
+        run: pwd
+
+      - name: Step 3 - Listing Files
+        run: ls -la
+  my_second_job:
+    name: My Second Job
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Step 1 - Hellow
+        run: echo "******* Welcome to My Second Job *******"
+
+      - name: Step 2 - Printing Date
+        run: date
