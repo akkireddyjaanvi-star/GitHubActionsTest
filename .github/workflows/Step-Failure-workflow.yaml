@@ -1,0 +1,22 @@
+name: Step Failure Demo
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  step-failure-job:
+    name: Step Failure Job
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Step 1
+        run: echo "Executing Step 1 Successfully"
+        
+      - name: Step 2 Fail Intentionally
+        run: echo "Failing Step 2" && exit 1
+        
+      - name: Step 3 Skipped Due to Failure
+        run: echo "Skipping Step 3"
