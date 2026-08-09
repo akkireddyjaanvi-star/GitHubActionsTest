@@ -4,19 +4,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  manual-trigger-demo:
+  dispatch-job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print dispatch message
-        run: echo "This workflow was triggered manually"
-
-      - name: Print Trigger Event Details
+      - name: Print manual triggered message
         run: |
           echo "This workflow is triggered manually"
-          echo "Trigger Event: ${{ github.event_name }}"
+          echo "Trigger event: ${{ github.event_name }}"
           echo "Branch Name: ${{ github.ref_name }}"
-          echo "Triggered By: ${{ github.actor }}"
+          echo "Triggered by: ${{ github.actor }}"
           echo "Workflow Name: ${{ github.workflow }}"
           echo "Repository Name: ${{ github.repository }}"
           echo "Repository Owner: ${{ github.repository_owner }}"
