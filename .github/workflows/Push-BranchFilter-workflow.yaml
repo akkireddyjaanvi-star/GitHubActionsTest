@@ -1,0 +1,24 @@
+# Push with branch filter — trigger only on specific branches
+name: Push-BranchFilter-Event
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  push-branchfilter-event:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Message
+        run: echo "This workflow was triggered by a push event on the 'main' branch"
+
+      - name: Print Trigger Info
+        run: |
+          echo "Workflow triggered by Push Event"
+          echo "Event Name: ${{ github.event_name }}"
+          echo "Repository : ${{ github.repository }}"
+          echo "Branch Name: ${{ github.ref_name }}"
+          echo "Triggered By: ${{ github.actor }}"
+          echo "Actor      : ${{ github.actor }}"
+          echo "Commit SHA : ${{ github.sha }}"

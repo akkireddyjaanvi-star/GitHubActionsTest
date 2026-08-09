@@ -1,3 +1,4 @@
+# Basic push — triggers on any branch
 name:
 on:
   push: 
