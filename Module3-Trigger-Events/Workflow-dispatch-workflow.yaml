@@ -1,5 +1,4 @@
 name: Workflow Dispatch Example
-
 on:
   workflow_dispatch:
   
@@ -14,9 +13,9 @@ jobs:
       - name: Print Trigger Event Details
         run: |
           echo "This workflow is triggered manually"
-          echo Trigger event: ${{github.event_name}}
-          echo Branch Name: ${{github.ref_name}}
-          echo Triggered by: ${{github.actor}}
-          echo Workflow Name: ${{github.workflow}}
-          echo Repository Name: ${{github.repository}}
-          echo Repository Owner: ${{github.repository_owner}}
+          echo Trigger Event: ${{ github.event_name }}
+          echo Branch Name: ${{ github.ref_name }}
+          echo Triggered By: ${{ github.actor }}
+          echo Workflow Name: ${{ github.workflow }}
+          echo Repository Name: ${{ github.repository }}
+          echo Repository Owner: ${{ github.repository_owner }}
