@@ -1,0 +1,18 @@
+name: Workflow Dispatch Example
+on:
+  workflow_dispatch:
+  jobs:
+    dispatch-job:
+
+    runs on: ubuntu-latest
+    
+    steps:
+     - run: |
+       - name: Print manual triggered message
+        echo "This workflow is triggered manually"
+        echo Trigger event: ${{github.event_name}}
+        echo Branch Name: ${{github.ref_name}}
+        echo Triggered by: ${{github.actor}}
+        echoWorkflow Name: ${{github.workflow}}
+        echo Repository Name: ${{github.repository}}
+        echo Repository Owner: ${{github.repository_owner}}
