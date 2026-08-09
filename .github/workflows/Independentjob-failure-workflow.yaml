@@ -1,0 +1,24 @@
+name: Failure Test Workflow
+on:
+    workflow_dispatch:
+jobs:
+    First-Job:
+        name: First-Job-Failure
+        
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Failure Step
+              run: |
+               echo "This step will fail intentionally  "
+               exit 1
+            - name: This step will be skipped due to previous failure
+              run: echo "This step will be skipped"
+    Second-Job:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: This job runs even if the first job fails
+              run: |
+               echo "This job will run even if the first job fails"
+               echo "This demonstrates that the workflow continues despite the failure of the first job"
