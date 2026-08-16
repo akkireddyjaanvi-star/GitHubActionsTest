@@ -1,4 +1,4 @@
-name: 01-Workflow-Dispatch-Event
+name: Workflow-Dispatch-Event
 
 on:
   workflow_dispatch:
