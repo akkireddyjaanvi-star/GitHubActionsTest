@@ -66,11 +66,11 @@ jobs:
     steps:
       - name: Deployment Summary
         run: |
-          echo "Deployment Summary" >> "$GITHUB_STEP_SUMMARY"
+          IMAGE_TAG="${GITHUB_SHA::7}"
+          echo "## Deployment Summary" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Environment | URL                             | Image Tag | Status |" >> "$GITHUB_STEP_SUMMARY"
-          echo "===========================================================================================================" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Environment | URL | Image Tag | Status |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
           echo "| Development | https://development.example.com | \`$IMAGE_TAG\` | ${{ needs.development.result }} |" >> "$GITHUB_STEP_SUMMARY"
           echo "| Staging | https://staging.example.com | \`$IMAGE_TAG\` | ${{ needs.staging.result }} |" >> "$GITHUB_STEP_SUMMARY"
           echo "| Production | https://production.example.com | \`$IMAGE_TAG\` | ${{ needs.production.result }} |" >> "$GITHUB_STEP_SUMMARY"
-          echo "============================================================================================================" >> "$GITHUB_STEP_SUMMARY"
