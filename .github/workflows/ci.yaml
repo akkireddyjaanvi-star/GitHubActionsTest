@@ -1,8 +1,8 @@
 name: development->staging->production
 on:
-push:
-  branches:
-    - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
   
 jobs:
@@ -18,8 +18,8 @@ jobs:
         run: |
           echo "Deploying to Development Environment"
           echo "==============================="
-          image_tag=${{ github.sha :: 7 }}
-          echo "Image Tag: $image_tag"
+          IMAGE_TAG="${GITHUB_SHA::7}"
+          echo "Image tag: $IMAGE_TAG"
           echo "==============================="
 
 
@@ -36,8 +36,8 @@ jobs:
         run: |
           echo "Deploying to Staging Environment"
           echo "==============================="
-          image_tag=${{ github.sha :: 7 }}
-          echo "Image Tag: $image_tag"
+          IMAGE_TAG="${GITHUB_SHA::7}"
+          echo "Image tag: $IMAGE_TAG"
           echo "==============================="
 
   production:
@@ -53,8 +53,8 @@ jobs:
         run: |
           echo "Deploying to Production Environment"
           echo "==============================="
-          image_tag=${{ github.sha :: 7 }}
-          echo "Image Tag: $image_tag"
+          IMAGE_TAG="${GITHUB_SHA::7}"
+          echo "Image tag: $IMAGE_TAG"
           echo "==============================="
 
 
